@@ -1,0 +1,59 @@
+.loader {
+  display: none;
+
+  &--active {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    min-height: 768px;
+    width: 100%;
+    padding: 100px;
+  }
+
+  & span[data-logotype] {
+    display: block;
+    width: 100%;
+
+    & svg {
+      display: block;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  & button {
+    position: absolute;
+
+    display: flex;
+    align-self: flex-end;
+    height: fit-content;
+
+    font-size: 24px;
+    line-height: 22px;
+    color: inherit;
+
+    background: none;
+    outline: inherit;
+    border: none;
+
+    cursor: pointer;
+
+    & span[data-button-desktop] {
+      @media (max-width: $viewport--md) {
+        display: none;
+      }
+    }
+
+    & span[data-button-mobile] {
+      @media (min-width: $viewport--md + 1) {
+        display: none;
+      }
+    }
+  }
+}
