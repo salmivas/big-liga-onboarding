@@ -9,6 +9,7 @@
 
 @import "variables";
 @import "mixins";
+@import "animations";
 @import "global/fonts";
 @import "global/reboot";
 @import "global/utils";
@@ -18,7 +19,8 @@
 //---------------------------------
 
 @import "blocks/header";
-@import "blocks/loader";
+@import "blocks/main";
+@import "blocks/modal";
 
 // используйте это для отключения ховеров на тач устройствах
 // ! но не используйте это для текстовых полей ( input, textarea )

@@ -1,10 +1,13 @@
-.loader {
+.modal {
   display: none;
+
+  background-color: $color-default-white;
 
   &--active {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 100;
 
     display: flex;
     flex-wrap: wrap;
@@ -14,11 +17,21 @@
     min-height: 768px;
     width: 100%;
     padding: 100px;
+
+    opacity: 1;
+  }
+
+  &--inactive {
+    opacity: 0;
+    animation: $smooth-disappearance;
   }
 
   & span[data-logotype] {
     display: block;
     width: 100%;
+    min-width: 300px;
+
+    animation: $smooth-appearence;
 
     & svg {
       display: block;
@@ -42,10 +55,20 @@
     outline: inherit;
     border: none;
 
-    cursor: pointer;
+    cursor: default;
+
+    @media (min-width: $viewport--md + 1px) {
+      cursor: pointer;
+
+      transition: $default-transition-settings;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
 
     & span[data-button-desktop] {
-      @media (max-width: $viewport--md) {
+      @include viewport--sm {
         display: none;
       }
     }

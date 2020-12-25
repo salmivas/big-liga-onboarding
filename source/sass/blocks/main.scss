@@ -1,0 +1,155 @@
+.main {
+  display: none;
+  align-items: center;
+
+  background-image: url("data:image/svg+xml,%3Csvg width='671' height='656' viewBox='0 0 671 656' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath opacity='.02' d='M491.524 653.829l.234.671H668.899l-.525-1.36-251.243-651-.247-.64H253.999l-.247.64L2.509 651.8l-.526 1.36H171.653l.231-.678 41.643-122.556h234.861l43.136 123.903zm-84.2-246.459H259.081l74.856-215.603 73.387 215.603z' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+
+  animation: $smooth-appearence;
+
+  @include viewport--sm {
+    background-image: none;
+  }
+
+  &--active {
+    display: flex;
+    animation: $smooth-appearence;
+  }
+
+  &--customers {
+    & .container {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+    }
+
+    & .main__intro h1 {
+      height: 100vh;
+      padding: 0 35px;
+    }
+
+    & .main__customers {
+      position: absolute;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100vw;
+      padding: 0 35px;
+
+      animation: $slide-from-left;
+
+      & p {
+        max-width: 350px;
+      }
+    }
+  }
+
+  &--back {
+    & .main__customers {
+      animation: $slide-from-right;
+    }
+  }
+}
+
+.main__intro {
+  display: flex;
+
+  & h1 {
+    display: flex;
+    align-items: flex-end;
+    flex-grow: 1;
+
+    margin: 0 40px 0 0;
+
+    font-size: 96px;
+    line-height: 1;
+    font-weight: 400;
+    color: $color-neon-blue;
+
+    user-select: none;
+
+    @include viewport--md {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      font-size: calc(10vw - 8px);
+    }
+
+    @include viewport--sm {
+      order: 2;
+
+      font-size: calc(13vw - 4px);
+    }
+  }
+}
+
+.main__customers {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+
+  font-size: 30px;
+  line-height: 40px;
+
+  @include viewport--sm {
+    display: none;
+
+    order: 1;
+
+    color: $color-default-white;
+
+    background-color: $color-neon-blue;
+  }
+
+  & p {
+    margin: 0;
+
+    user-select: none;
+
+    @include viewport--md {
+      font-size: calc(4vw - 11px);
+      line-height: 1.3;
+    }
+
+    @include viewport--sm {
+      font-size: calc(2vw + 14px);
+    }
+  }
+}
+
+.main__picture-wrapper {
+  margin-bottom: 20px;
+
+  @include viewport--md {
+    margin-bottom: 0;
+  }
+
+  @include viewport--sm {
+    margin-bottom: 20px;
+  }
+}
+
+.main__picture {
+  &--draco {
+    @include viewport--sm {
+      display: none;
+    }
+  }
+
+  &--draco-white {
+    display: none;
+
+    @include viewport--sm {
+      display: block;
+    }
+  }
+
+  & svg {
+    width: 100%;
+  }
+}
